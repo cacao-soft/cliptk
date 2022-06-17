@@ -2,6 +2,10 @@
 
 RPGツクールVX and VXAce クリップボード取得 CLI ツール
 
+## ダウンロード
+
+- [リリースページ](https://github.com/cacao-soft/clipvx/releases/)からダウンロードする
+
 ## 使い方
 
 ```sh
