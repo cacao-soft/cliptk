@@ -1,15 +1,15 @@
-# clipvx
+# cliptk
 
-RPGツクールVX and VXAce クリップボード取得 CLI ツール
+RPGツクールのクリップボード取得 CLI ツール (VX,VXAce,MV,MZ 対応)
 
 ## ダウンロード
 
-- [リリースページ](https://github.com/cacao-soft/clipvx/releases/)からダウンロードする
+- [リリースページ](https://github.com/cacao-soft/cliptk/releases/)からダウンロードする
 
 ## 使い方
 
 ```sh
-clipvx help
+cliptk help
 ```
 
 ## スクリプト
@@ -26,6 +26,16 @@ Clipboard << obj
 # コマンドライン引数の取得
 # ファイル名以降の引数のみ取得可能
 p ARGV
+
+# String#to_json
+# JSON 文字列から Hash オブジェクトを生成する
+p '{"key":123}'.to_json
+# Hash#to_json
+# ハッシュから JSON 文字列を生成する
+p ({"key" => 123}.to_json)
+# Array#to_json
+# 配列から JSON 文字列を生成する
+p [1, {"k" => 123}].to_json
 ```
 
 ### サンプル
@@ -57,7 +67,7 @@ Clipboard << commands
 
 ```sh
 # 引数なし
-clipvx script.rb
+cliptk script.rb
 # 引数あり
-clipvx script.rb 選択肢１ 選択肢２
+cliptk script.rb 選択肢１ 選択肢２
 ```
