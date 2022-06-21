@@ -27,15 +27,15 @@ Clipboard << obj
 # ファイル名以降の引数のみ取得可能
 p ARGV
 
-# String#to_json
 # JSON 文字列から Hash オブジェクトを生成する
-p '{"key":123}'.to_json
-# Hash#to_json
-# ハッシュから JSON 文字列を生成する
-p ({"key" => 123}.to_json)
-# Array#to_json
-# 配列から JSON 文字列を生成する
-p [1, {"k" => 123}].to_json
+p JSON.parse('{"key":123}')
+# オブジェクト(Hash,Array)から JSON 文字列を生成する
+p JSON.generate([1, {"k" => 123}])
+
+# オブジェクトをファイルへ保存
+save_data(obj, "filename")
+# オブジェクトをファイルから復元
+obj = load_data("filename")
 ```
 
 ### サンプル
