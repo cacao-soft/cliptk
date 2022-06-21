@@ -71,3 +71,10 @@ cliptk script.rb
 # 引数あり
 cliptk script.rb 選択肢１ 選択肢２
 ```
+
+## ライセンス
+
+本ツールを作成するにあたり以下のものを使用させていただきました。
+
+- [mruby](https://github.com/mruby/mruby): Copyright (c) 2010-2021 mruby developers
+- [RapidJSON](https://rapidjson.org/): Copyright (C) 2015 THL A29 Limited, a Tencent company, and Milo Yip.
