@@ -4,7 +4,7 @@ RPGツクールのクリップボード取得 CLI ツール (VX,VXAce,MV,MZ 対�
 
 ## ダウンロード
 
-- [リリースページ](https://github.com/cacao-soft/cliptk/releases/)からダウンロードする
+- [リリースページ](https://github.com/cacao-soft/cliptk/releases/)からダウンロード
 
 ## 使い方
 
@@ -15,17 +15,22 @@ cliptk help
 ## スクリプト
 
 ```ruby
-# クリップボードのデータ取得
+# クリップボードのデータを取得
 # 取得可能なデータは、イベント・イベントページ・イベントコマンドの３種類
 # それぞれ RPG::Event, RPG::Event::Page, [RPG::EventCommand] のオブジェクト
 obj = Clipboard.data
 
-# クリップボードへデータ設定
+# クリップボードへデータの書き込み
 Clipboard << obj
 
 # コマンドライン引数の取得
 # ファイル名以降の引数のみ取得可能
 p ARGV
+
+# 実行時の各パスを取得する
+p __exe__   # 実行ファイル
+p __file__  # スクリプト
+p __dir__   # スクリプトフォルダ
 
 # JSON 文字列から Hash オブジェクトを生成する
 p JSON.parse('{"key":123}')
