@@ -41,6 +41,9 @@ p JSON.generate([1, {"k" => 123}])
 save_data(obj, "filename")
 # オブジェクトをファイルから復元
 obj = load_data("filename")
+
+# ファイル一覧の取得
+p Dir.glob("Data/*.rvdata2")
 ```
 
 ### サンプル
@@ -77,9 +80,8 @@ cliptk script.rb
 cliptk script.rb 選択肢１ 選択肢２
 ```
 
-## ライセンス
-
-本ツールを作成するにあたり以下のものを使用させていただきました。
+## 使用ライブラリ
 
 - [mruby](https://github.com/mruby/mruby): Copyright (c) 2010-2021 mruby developers
 - [RapidJSON](https://rapidjson.org/): Copyright (C) 2015 THL A29 Limited, a Tencent company, and Milo Yip.
+- [C++ GLOB library](https://github.com/Kogia-sima/cppglob): Copyright (c) 2018 Ryohei Machida
