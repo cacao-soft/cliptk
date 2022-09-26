@@ -11,6 +11,20 @@ RPGツクールのクリップボード取得 CLI ツール (VX,VXAce,MV,MZ 対�
 ```sh
 cliptk help
 ```
+  
+- `cliptk`
+  - 別のツクールに貼付可能なデータに変換します (VX <-> VXAce, MV <-> MZ)
+- `cliptk filename`
+  - スクリプトファイルを実行します
+- `cliptk V`
+  - クリップボードの内容を表示
+- `cliptk V filename`
+  - ファイルの内容を表示
+- `cliptk S filename`
+  - クリップボードの内容をファイルのに保存
+- `cliptk L filename`
+  - ファイルからクリップボードの内容を復元
+
 
 ## スクリプト
 
