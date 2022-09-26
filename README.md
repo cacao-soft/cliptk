@@ -50,6 +50,10 @@ p __dir__   # スクリプトフォルダ
 p JSON.parse('{"key":123}')
 # オブジェクト(Hash,Array)から JSON 文字列を生成する
 p JSON.generate([1, {"k" => 123}])
+# オブジェクトをJSONファイルから生成
+obj = JSON.read("filename")
+# オブジェクトをJSONファイルで保存
+JSON.save(obj, "filename")
 
 # オブジェクトをファイルへ保存
 save_data(obj, "filename")
@@ -97,5 +101,4 @@ cliptk script.rb 選択肢１ 選択肢２
 ## 使用ライブラリ
 
 - [mruby](https://github.com/mruby/mruby): Copyright (c) 2010-2021 mruby developers
-- [RapidJSON](https://rapidjson.org/): Copyright (C) 2015 THL A29 Limited, a Tencent company, and Milo Yip.
 - [C++ GLOB library](https://github.com/Kogia-sima/cppglob): Copyright (c) 2018 Ryohei Machida
