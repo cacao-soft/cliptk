@@ -101,4 +101,3 @@ cliptk script.rb 選択肢１ 選択肢２
 ## 使用ライブラリ
 
 - [mruby](https://github.com/mruby/mruby): Copyright (c) 2010-2021 mruby developers
-- [C++ GLOB library](https://github.com/Kogia-sima/cppglob): Copyright (c) 2018 Ryohei Machida
