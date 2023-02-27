@@ -11,7 +11,7 @@ RPGツクールのクリップボード取得 CLI ツール (VX,VXAce,MV,MZ 対�
 ```sh
 cliptk help
 ```
-  
+
 - `cliptk`
   - 別のツクールに貼付可能なデータに変換します (VX <-> VXAce, MV <-> MZ)
 - `cliptk filename`
@@ -25,7 +25,6 @@ cliptk help
 - `cliptk L filename`
   - ファイルからクリップボードの内容を復元
 
-
 ## スクリプト
 
 ```ruby
@@ -33,7 +32,6 @@ cliptk help
 # 取得可能なデータは、イベント・イベントページ・イベントコマンドの３種類
 # それぞれ RPG::Event, RPG::Event::Page, [RPG::EventCommand] のオブジェクト
 obj = Clipboard.data
-
 # クリップボードへデータの書き込み
 Clipboard << obj
 
