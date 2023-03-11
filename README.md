@@ -13,7 +13,7 @@ cliptk help
 ```
 
 - `cliptk`
-  - 別のツクールに貼付可能なデータに変換します (VX <-> VXAce, MV <-> MZ)
+  - クリップボードの内容を別のツクールに貼付可能なデータに変換します (VX <-> VXAce, MV <-> MZ)
 - `cliptk filename`
   - スクリプトファイルを実行します
 - `cliptk V`
@@ -21,16 +21,16 @@ cliptk help
 - `cliptk V filename`
   - ファイルの内容を表示
 - `cliptk S filename`
-  - クリップボードの内容をファイルのに保存
+  - クリップボードの内容をファイルに保存
 - `cliptk L filename`
   - ファイルからクリップボードの内容を復元
+
+> スクリプトファイルの拡張子を`ctk`などに変更し関連付けするとダブルクリックでスクリプトが実行できるようになります。
 
 ## スクリプト
 
 ```ruby
 # クリップボードのデータを取得
-# 取得可能なデータは、イベント・イベントページ・イベントコマンドの３種類
-# それぞれ RPG::Event, RPG::Event::Page, [RPG::EventCommand] のオブジェクト
 obj = Clipboard.data
 # クリップボードへデータの書き込み
 Clipboard << obj
