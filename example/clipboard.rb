@@ -26,7 +26,7 @@ end
     VXAce 以前は Rubyオブジェクト、MV 以降は JSON文字列で取得します。
 
   Clipboard.type
-    クリップボードのデータ形式を取得します。
+    クリップボードのデータ形式(Symbol)を取得します。
       :XP, :VX, :VXA, :MV, :MZ
 
   Clipboard.format
