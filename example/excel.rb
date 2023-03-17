@@ -7,7 +7,7 @@ module XL
 end
 
 class << Excel
-  def open(filename)
+  def open(filename, auto_close = true)
     path = File.expand_path(filename)
     if File.exist?(path)
       book = self.Workbooks.Open(path)
@@ -15,11 +15,18 @@ class << Excel
       book = self.Workbooks.Add
       book.SaveAs(path)
     end
+    def book.file_path = "#{self.Path}\\#{self.Name}"
     return book unless block_given?
     begin
       yield book
     ensure
-      book.Close(false)
+      if auto_close
+        book.Save
+        book.Close
+        nil
+      else
+        book
+      end
     end
   end
 
@@ -35,6 +42,7 @@ Excel.Visible = true
 # ファイルがあれば開き、無ければ新規作成
 Excel.open("test.xlsx") do |book|
   p book.Worksheets(1).Cells(1, 1).Text
+  p book.file_path
 end
 
 # 新しいブックを追加
@@ -42,10 +50,10 @@ book = Excel.Workbooks.Add
 # 最初のシートを取得
 sheet = book.Worksheets(1)
 
-# セルの値を配列で取得
-arr = sheet.Range("A1:C3").Value
 # 配列の値をセルに設定
 sheet.Range("A1:C3").Value = [[1, 2, 3], [6, "あいうえお"], [4, 5]]
+# セルの値を配列で取得
+p sheet.Range("A1:C3").Value
 
 # シート名を変更
 sheet.Name = "シート名"
