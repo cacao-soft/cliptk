@@ -11,7 +11,10 @@ clipdata = Clipboard.data
 # mv と mz は文字列
 if clipdata.is_a?(String)
   # JSON から Ruby オブジェクトに変換
-  obj = JSON.parse(clipdata)
+  obj = JSON.parse(clipdata) rescue nil
+end
+
+if obj
   # 内容を修正する
   if obj["name"]&.start_with?("宝箱")
     obj.dig("pages", 0, "list").each do |command|
@@ -19,7 +22,10 @@ if clipdata.is_a?(String)
       command["parameters"][2] = 1234   # オペランドを変更
     end
   end
+  
+  # JSON 文字列に戻してクリップボードに設定
+  Clipboard << JSON.generate(obj)
+  puts "入手金額を変更しました"
+else
+  puts "RPGMZの宝箱イベントをコピーしてください"
 end
-
-# JSON 文字列に戻してクリップボードに設定
-Clipboard << JSON.generate(obj)
