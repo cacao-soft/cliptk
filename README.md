@@ -13,9 +13,11 @@ cliptk help
 ```
 
 - `cliptk`
-  - クリップボードの内容を別のツクールに貼付可能なデータに変換します (VX <-> VXAce, MV <-> MZ)
+  - クリップボードの内容を別のツクールに貼付可能なデータに変換
+  - (VX <-> VXAce, MV <-> MZ, JSON -> MZ)
+  - MV, MZ のデータをテキストエディタにも貼付可能にする
 - `cliptk filename`
-  - スクリプトファイルを実行します
+  - スクリプトファイルを実行
 - `cliptk V`
   - クリップボードの内容を表示
 - `cliptk V filename`
