@@ -14,8 +14,11 @@ cliptk help
 
 - `cliptk`
   - クリップボードの内容を別のツクールに貼付可能なデータに変換
-  - (VX <-> VXAce, MV <-> MZ, JSON -> MZ)
+    - XP, VX, VXAce -\> XP, VX, VXAce (データ構造がVXAceと同じもののみ)
+    - MV \<-\> MZ (データ構造が同じもののみ)
   - MV, MZ のデータをテキストエディタにも貼付可能にする
+    - MV, MZ -\> JSON
+    - JSON -\> MZ
 - `cliptk filename`
   - スクリプトファイルを実行
 - `cliptk V`
