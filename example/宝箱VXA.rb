@@ -6,7 +6,7 @@ print "取得する金額："
 gold = gets.to_i
 
 # cliptk S で保存したイベントを読み込む
-event = load_data(File.join(__dir__, "宝箱.rvdata2"))
+event = load_data(File.join(__dir__, "宝箱VXA.rvdata2"))
 # 読み込んだイベントの編集
 event.name = "宝箱 (#{gold}Ｇ)"
 event.pages[0].list.each do |command|
