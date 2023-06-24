@@ -5,7 +5,7 @@ if ARGV.size != 2
   cmd = File.basename(__exe__).split(".").tap(&:pop).join
   puts "Usage: #{cmd} #{__file__} Filename TileIndex"
   puts " Filename  -> 拡張子は省略する"
-  puts " TileIndex -> A1(0-15), A2-3(0-31), A4(0-23), A5(0-127), B-E(0-255)"
+  puts " TileIndex -> A1(0-15), A2-3(0-31), A4(0-47), A5(0-127), B-E(0-255)"
   puts "", "Examples:", " #{cmd} #{__file__} Dungeon_B 250"
   exit
 end

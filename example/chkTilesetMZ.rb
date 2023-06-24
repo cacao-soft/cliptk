@@ -1,17 +1,23 @@
 #
 # タイルの使用マップを検索 for RPGツクールMZ
 #
-if ARGV.size != 2
+if ARGV.empty?
+  print "タイルセットの画像名（拡張子は省略）を入力: "
+  SEARCH_NAME = gets.chomp
+  print "タイルのインデックスを入力: "
+  SEARCH_INDEX = gets.to_i
+elsif ARGV.size == 2
+  SEARCH_NAME = ARGV[0]
+  SEARCH_INDEX = ARGV[1].to_i
+else
   cmd = File.basename(__exe__).split(".").tap(&:pop).join
   puts "Usage: #{cmd} #{__file__} Filename TileIndex"
   puts " Filename  -> 拡張子は省略する"
-  puts " TileIndex -> A1(0-15), A2-3(0-31), A4(0-47), A5(0-127), B-E(0-255)"
+  puts " TileIndex -> A1(0-15), A2-3(0-31), A4(0-48), A5(0-127), B-E(0-255)"
   puts "", "Examples:", " #{cmd} #{__file__} Dungeon_B 250"
   exit
 end
 
-SEARCH_NAME = ARGV[0]
-SEARCH_INDEX = ARGV[1].to_i
 
 mapinfos = JSON.read("data/MapInfos.json")
 tileset_id_list = {}
@@ -62,3 +68,8 @@ end
 
 puts "\r===================="
 puts map_list
+
+if ARGV.empty?
+  print "エンターキーで終了する"
+  gets
+end
