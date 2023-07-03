@@ -6,7 +6,7 @@
 # このスクリプトを実行すると修正されるのでマップへペーストする。
 
 # クリップボードのデータを取得する
-clipdata = Clipboard.data
+clipdata = Clipboard.get
 
 # mv と mz は文字列
 if clipdata.is_a?(String)
