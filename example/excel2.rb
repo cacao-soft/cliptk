@@ -1,6 +1,7 @@
 #
 # アイテム、武器、防具の名称リストをエクセルで作成する
 #
+File::SEPARATOR = "\\"
 Excel = WIN32OLE.new('Excel.Application')
 
 filename = "test.xlsx"

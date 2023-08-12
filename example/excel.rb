@@ -1,3 +1,6 @@
+# パスの区切り文字を変更
+File::SEPARATOR = "\\"
+
 # Excel 起動
 Excel = WIN32OLE.new('Excel.Application')
 
@@ -15,7 +18,7 @@ class << Excel
       book = self.Workbooks.Add
       book.SaveAs(path)
     end
-    def book.file_path = "#{self.Path}\\#{self.Name}"
+    def book.file_path = File.join(self.Path, self.Name)
     return book unless block_given?
     begin
       yield book

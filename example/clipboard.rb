@@ -2,24 +2,12 @@
 # クリップボードへの入出力
 #
 
-# クリップボードのデータを取得
-clipdata = Clipboard.data
-
-case Clipboard.type
-when :MV
-  Clipboard(:MZ) << clipdata
-  # JSON文字列であればMZデータとして書き込まれる
-  # Clipboard << Clipboard.get
-when :MZ
-  Clipboard(:MV, Clipboard.format, :TXT) << clipdata
-  # MV 用に変換するにはフォーマットの指定が必要
-  # Clipboard(:MV) << JSON.parse(Clipboard.get)
-else
-  Clipboard << clipdata
-end
-
-
 =begin
+
+  Clipboard.get
+    クリップボードのデータを取得します。
+    VXAce 以前はRubyオブジェクト、MV 以降はJSON文字列で取得します。
+    JSON文字列は JSON.parse(json) でRubyオブジェクトに変換できます。
 
   Clipboard.data
     クリップボードのデータを取得します。
@@ -35,11 +23,6 @@ end
     自動判別は VXAce と MZ のデータ構造を使用します。
     Rubyオブジェクトは JSON.generate(obj) でJSON文字列に変換できます。
 
-  Clipboard.get
-    クリップボードのデータを取得します。
-    VXAce 以前はRubyオブジェクト、MV 以降はJSON文字列で取得します。
-    JSON文字列は JSON.parse(json) でRubyオブジェクトに変換できます。
-
   Clipboard.type
     クリップボードのデータ形式(Symbol)を取得します。
       :XP, :VX, :VXA, :MV, :MZ
@@ -48,3 +31,21 @@ end
     標準および登録済みのクリップボード形式を取得します。この値は変動します。
 
 =end
+
+# クリップボードのデータを取得
+#   XP,VX,VXAceのデータは、RPG::xxxなどのオブジェクト
+#   MV,MZのデータは、{"key"=>123}などのオブジェクト
+clipdata = Clipboard.data
+
+case Clipboard.type
+when :MV
+  Clipboard(:MZ) << clipdata
+  # JSON文字列であればMZデータとして書き込まれる
+  # Clipboard << Clipboard.get
+when :MZ
+  Clipboard(:MV, Clipboard.format, :TXT) << clipdata
+  # MV 用に変換するにはフォーマットの指定が必要
+  # Clipboard(:MV) << JSON.parse(Clipboard.get)
+else
+  Clipboard << clipdata
+end
