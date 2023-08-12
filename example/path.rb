@@ -15,3 +15,12 @@ end
 # パスの区切り文字を変更
 File::SEPARATOR = "\\"
 p [__exe__, __file__, __dir__, __project__]
+
+# フォルダと拡張子の削除
+p File.basename("dir/file.tar.gz")              #=> "file.tar.gz"
+p File.basename("dir/file.tar.gz", false)       #=> "file.tar"
+p File.basename("dir/file.tar.gz", "*")         #=> "file"
+p File.basename("dir/file.tar.gz", ".*")        #=> "file.tar"
+p File.basename("dir/file.tar.gz", "gz")        #=> "file.tar"
+p File.basename("dir/file.tar.gz", ".tar.gz")   #=> "file"
+p File.basename("dir/file.m.rvdata2", "*data*") #=> "file.m"
