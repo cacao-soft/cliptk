@@ -37,7 +37,7 @@ end
 def tile_indexs_from(tileset_index, tile_id)
   return [] unless match_tile?(tileset_index, tile_id)
   tile_index = tile_index_from(tile_id)
-  result = []  
+  result = []
   case tileset_index
   when 0
     if tile_index == 1
