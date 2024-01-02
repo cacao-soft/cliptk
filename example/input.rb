@@ -6,10 +6,10 @@
 
   コマンドライン引数を受け取る
     ARGV
-  
+
   コンソールで一行入力
     gets
-  
+
   コンソールで複数行を入力
     $stdin.readlines
 
@@ -28,9 +28,11 @@ else
   # ２つ目の引数を文字列で取得
   str = ARGV[1]
 end
-puts "[ 取得結果：数値 #{num} 文字列 #{str} ]"
-puts
+puts "[ 取得結果：数値 #{num} 文字列 #{str} ]", ""
 
 # 複数行の入力を実行
 puts "複数行の入力を受け取る (Ctrl + z で制御文字 SUB のみを入力で終了)"
 p $stdin.readlines.map(&:chomp)
+
+print "\n< エンターキーで終了します > "
+gets
