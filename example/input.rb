@@ -4,14 +4,14 @@
 
 =begin
 
-  コマンドライン引数を受け取る
+  コマンドライン引数を受け取る -> Array
     ARGV
 
-  コンソールで一行入力
+  コンソールで一行入力 -> String
     gets
 
-  コンソールで複数行を入力
-    $stdin.readlines
+  コンソールで複数行を入力 (Ctrl+Zで入力終了) -> Array
+    readlines(chomp: true)
 
 =end
 
@@ -32,7 +32,7 @@ puts "[ 取得結果：数値 #{num} 文字列 #{str} ]", ""
 
 # 複数行の入力を実行
 puts "複数行の入力を受け取る (Ctrl + z で制御文字 SUB のみを入力で終了)"
-p $stdin.readlines.map(&:chomp)
+p readlines
 
 print "\n< エンターキーで終了します > "
 gets

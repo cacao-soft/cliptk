@@ -1,0 +1,34 @@
+#
+# [VX] 選択肢の作成
+#
+
+Clipboard.use_vx
+
+params = ARGV
+if params.empty?
+  puts "項目名を行毎に入力してください。Ctrl+Zで入力終了。"
+  params = readlines
+end
+
+puts "キャンセル時の処理を入力してください。(0: 無効 1-: 指定項目 未入力: 分岐)"
+cancel = gets&.to_i
+
+puts "クリップボードに作成します。イベントの実行内容にペーストしてください。"
+
+commands = []
+# 選択肢の表示
+commands << RPG::EventCommand.new(102, 0, [params, cancel || params.size + 1])
+# [] の場合
+params.each_with_index do |s,i|
+  commands << RPG::EventCommand.new(402, 0, [i, s])
+  commands << RPG::EventCommand.new(0, 1)
+end
+if cancel
+  # キャンセルの場合
+  commands << RPG::EventCommand.new(403)
+  commands << RPG::EventCommand.new(0, 1)
+end
+# 分岐終了
+commands << RPG::EventCommand.new(404)
+
+Clipboard << commands
